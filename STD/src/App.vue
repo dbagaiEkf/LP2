@@ -1,18 +1,34 @@
 
 
 <template>
-  <header>
-  Market)
+  <header >
   </header>
-  <shopItem v-for="item in productsList"
-      :key="item.id"
-      :item="item"></shopItem>
-
-
+  <ul>
+    <shopItem class="item" v-for="item in shortProductList"
+        :key="item.id"
+        :item="item"></shopItem>
+    </ul>
+  <button class="button" @click="addItem" width=25px >Show More</button>
+<footer class="bottom">Maket</footer>
 </template>
 
 <style scoped>
-
+.bottom{
+    height: 30px;
+    align-self: center;
+}
+.button{
+    margin: 0 auto;
+    margin-bottom: 50px;
+    align-self: center;
+    display: block;
+    width: 100%;
+}
+.shopItem{
+    margin: 0 auto;
+    display: block;
+    width: 70%;
+}
 </style>
 
 
@@ -21,8 +37,25 @@
 import shopItem from "@/components/ShopItem.vue"
 import { reactive } from "vue"
 
-const productsList = reactive([
-    {
+function addItem(){
+    for(let i = 1; i < 3; i++){
+        shortProductList.push(productsList[shortProductList.length +1]
+    
+    //     {
+    //     // id: productsList[shortProductList.length + 1].id,
+    //     // title: productsList[shortProductList.length + 1].title,
+    //     // price: productsList[shortProductList.length + 1].price,
+    //     // description: productsList[shortProductList.length + 1].description,
+    //     // category: productsList[shortProductList.length + 1].category,
+    //     // image: productsList[shortProductList.length + 1].image,
+    //     // rating: productsList[shortProductList.length + 1].rating,
+    //     // rating: productsList[shortProductList.length + 1].rating.rate
+    // }
+)}
+}
+
+const shortProductList = reactive([
+{
         'id': 1,
         'title': 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
         'price': 109.95,
@@ -57,7 +90,9 @@ const productsList = reactive([
             'rate': 4.7,
             'count': 500
         }
-    },
+    }
+])
+const productsList = reactive([
     {
         'id': 4,
         'title': 'Mens Casual Slim Fit',

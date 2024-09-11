@@ -1,5 +1,5 @@
 <template>
-    <div class="shopItem" >
+    <li class="shopItem" >
         <div>
             <h1>{{ item.title }}</h1>
             <img v-bind:src="item.image" width=25% height=auto>
@@ -9,7 +9,7 @@
             <h4>{{ item.category }}</h4>
             <h5>Rate: {{ item.rating.rate }}</h5>
         </div>
-    </div>
+    </li>
 </template>
 
 <script setup>
