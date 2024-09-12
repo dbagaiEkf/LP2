@@ -4,11 +4,11 @@
   <header >
   </header>
   <ul>
-    <shopItem class="item" v-for="item in shortProductList"
+    <shopItem v-for="item in shortProductList"
         :key="item.id"
         :item="item"></shopItem>
     </ul>
-  <button class="button" @click="addItem" width=25px >Show More</button>
+  <button class="button" @click="addItem" :class="{'loader': true}">{{ change_text }}</button>
 <footer class="bottom">Maket</footer>
 </template>
 
@@ -29,6 +29,7 @@
     display: block;
     width: 70%;
 }
+
 </style>
 
 
@@ -36,22 +37,24 @@
 
 import shopItem from "@/components/ShopItem.vue"
 import { reactive } from "vue"
+import { ref } from "vue"
+
+const props = defineProps({
+    'text_button':{
+        type : String,
+        default: "Show Next Items"
+    }
+})  
+const change_text = ref(props.text_button)
 
 function addItem(){
-    for(let i = 1; i < 3; i++){
-        shortProductList.push(productsList[shortProductList.length +1]
-    
-    //     {
-    //     // id: productsList[shortProductList.length + 1].id,
-    //     // title: productsList[shortProductList.length + 1].title,
-    //     // price: productsList[shortProductList.length + 1].price,
-    //     // description: productsList[shortProductList.length + 1].description,
-    //     // category: productsList[shortProductList.length + 1].category,
-    //     // image: productsList[shortProductList.length + 1].image,
-    //     // rating: productsList[shortProductList.length + 1].rating,
-    //     // rating: productsList[shortProductList.length + 1].rating.rate
-    // }
-)}
+    change_text.value = "Loading"
+    setTimeout(()=>{
+        for(let i = 1; i < 3; i++){
+        shortProductList.push(productsList[shortProductList.length +1])
+    }
+    change_text.value = "Show Next Items"},3000)
+
 }
 
 const shortProductList = reactive([

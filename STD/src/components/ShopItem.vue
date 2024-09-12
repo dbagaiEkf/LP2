@@ -2,7 +2,7 @@
     <li class="shopItem" >
         <div>
             <h1>{{ item.title }}</h1>
-            <img v-bind:src="item.image" width=25% height=auto>
+            <img v-bind:src="item.image" width=35% height=auto>
             <p>{{ item.price }}</p>
             <p></p>
             <h5>{{ item.description }}</h5>
