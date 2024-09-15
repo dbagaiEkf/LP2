@@ -14,4 +14,5 @@
 
 <script setup>
 defineProps(['item'])
+
 </script>
