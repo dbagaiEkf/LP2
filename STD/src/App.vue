@@ -3,7 +3,9 @@
 <template>
   <header >
     <searchItem @search-item="saveStr"></searchItem>
-    <div>{{searchStrValue}}</div>
+    <div>{{productListItem[0]}}</div>
+    <div>{{ saveStr }}</div>
+    <div>{{search-itme }}</div>
   </header>
 
     <shopItem v-for="item in shopItems"
@@ -54,13 +56,45 @@ setTimeout(()=> {
     3000)
 
 function saveStr(strVal){
+    shopItem.value = []
     searchStrValue.value = strVal.value
+    console.log(strVal.value)
+    for(let listItem in productListItem){
+            if(compare(strVal,listItem.id)){
+                searchItem.push(listItem)
+            }
+    }
+}
+function compare (searchValue, elementId){
+    const id = elementId -1
+    if (searchValue.ReturnType === typeof number){
+        const myNumber = atoi(searchValue)
+        if(productListItem[id].price === myNumber){
+            return true
+            // searchItem.push(productListItem[id])
+        }
+        else return false
+    }
+    else{
+        let searchValue_index = 0
+        for(let productListItem_title_index = 0; productListItem_title_index < productListItem[id].title.length; productListItem_title_index++){
+            if(productListItem[id].title[productListItem_title_index] === searchValue[searchValue_index]){
+                searchValue_index++
+                productListItem_title_index++
+            }
+            else searchValue_index = 0
+            if((searchValue_index+1)===searchStrValue.value.length){
+                return true
+            }
+            else return false
+        }
+    }
 }
 console.log(searchStrValue)
-function searchItem_f(itemId){
-    const one_item = shopItems.value.find((shopItems)=> shopItems[itemId].title != searchStrValue.value)
-    one_item.isFound = false
-    }
+// function searchItem_f(itemId){
+//     const one_item = shopItems.value.find((shopItems)=> shopItems[itemId].title != searchStrValue.value)
+//     one_item.isFound = false
+//     }
 
 
 

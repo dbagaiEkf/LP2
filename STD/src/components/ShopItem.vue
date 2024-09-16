@@ -1,5 +1,5 @@
 <template>
-    <li class="shopItem" >
+    <li class="shopItem">
         <div>
             <h1>{{ item.title }}</h1>
             <img v-bind:src="item.image" width=35% height=auto>
