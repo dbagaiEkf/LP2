@@ -3,18 +3,18 @@
 <template>
   <header >
     <searchItem @search-item="saveStr"></searchItem>
-    <div>{{productListItem[0]}}</div>
+    <!-- <div>{{productListItem[0]}}</div>
     <div>{{ saveStr }}</div>
-    <div>{{search-itme }}</div>
+    <div>{{search-itme }}</div> -->
   </header>
-
+  <orderForm></orderForm>
     <shopItem v-for="item in shopItems"
         :key="item.id"
         :item="item"
         ></shopItem>
     <p></p>
         <div v-if="isLoading === true">Loading</div>
-    
+
     <!-- <footer class="bottom">Maket</footer> -->
 </template>
 
@@ -44,6 +44,7 @@
 import shopItem from "@/components/ShopItem.vue"
 import searchItem from "@/components/searchItem.vue"
 import productListItem from "@/assets/products.json"
+import orderForm from "@/components/orderForm.vue"
 import { ref } from "vue"
 
 const isLoading = ref (true)
