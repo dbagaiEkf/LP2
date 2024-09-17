@@ -3,9 +3,9 @@
 <template>
   <header >
     <searchItem @search-item="saveStr"></searchItem>
-    <!-- <div>{{productListItem[0]}}</div>
-    <div>{{ saveStr }}</div>
-    <div>{{search-itme }}</div> -->
+    <div>{{productListItem[0].title}}</div>
+    <!-- <div>{{ saveStr }}</div>
+    <div>{{search-itme }}</div> --> 
   </header>
   <orderForm></orderForm>
     <shopItem v-for="item in shopItems"
@@ -58,17 +58,24 @@ setTimeout(()=> {
 
 function saveStr(strVal){
     shopItem.value = []
-    searchStrValue.value = strVal.value
-    console.log(strVal.value)
-    for(let listItem in productListItem){
-            if(compare(strVal,listItem.id)){
+    const temp_shop_items = ref ([])
+    temp_shop_items.value = productListItem
+    console.log(productListItem)
+
+    for(let listItem in temp_shop_items.value){
+        console.log(listItem)
+        if(compare(strVal,listItem.id)){
+
                 searchItem.push(listItem)
             }
     }
 }
 function compare (searchValue, elementId){
     const id = elementId -1
-    if (searchValue.ReturnType === typeof number){
+    console.log("hello")
+    console.log(elementId)
+    console.log(searchValue)
+    if (isNaN(Number(elementId))){
         const myNumber = atoi(searchValue)
         if(productListItem[id].price === myNumber){
             return true
@@ -77,20 +84,22 @@ function compare (searchValue, elementId){
         else return false
     }
     else{
-        let searchValue_index = 0
-        for(let productListItem_title_index = 0; productListItem_title_index < productListItem[id].title.length; productListItem_title_index++){
-            if(productListItem[id].title[productListItem_title_index] === searchValue[searchValue_index]){
-                searchValue_index++
-                productListItem_title_index++
-            }
-            else searchValue_index = 0
-            if((searchValue_index+1)===searchStrValue.value.length){
-                return true
-            }
-            else return false
+        productListItem[id].title.includes(searchValue)
+        console.log(productListItem[id])
+        // let searchValue_index = 0
+        // for(let productListItem_title_index = 0; productListItem_title_index < productListItem[id].title.length; productListItem_title_index++){
+        //     if(productListItem[id].title[productListItem_title_index] === searchValue[searchValue_index]){
+        //         searchValue_index++
+        //         productListItem_title_index++
+        //     }
+        //     else searchValue_index = 0
+        //     if((searchValue_index+1)===searchStrValue.value.length){
+        //         return true
+        //     }
+        //     else return false
         }
     }
-}
+
 console.log(searchStrValue)
 // function searchItem_f(itemId){
 //     const one_item = shopItems.value.find((shopItems)=> shopItems[itemId].title != searchStrValue.value)
