@@ -60,11 +60,11 @@ function saveStr(strVal){
     shopItem.value = []
     const temp_shop_items = ref ([])
     temp_shop_items.value = productListItem
-    console.log(productListItem)
-
-    for(let listItem in temp_shop_items.value){
-        console.log(listItem)
-        if(compare(strVal,listItem.id)){
+    console.log(temp_shop_items.value)
+    let listItem = []
+    for( let i=0; i < temp_shop_items.value.length; i++){
+        // console.log(temp_shop_items.value[i])
+        if(compare(strVal,temp_shop_items.value[i].id)){
 
                 searchItem.push(listItem)
             }
@@ -84,8 +84,9 @@ function compare (searchValue, elementId){
         else return false
     }
     else{
-        productListItem[id].title.includes(searchValue)
-        console.log(productListItem[id])
+        return productListItem[id].title.includes(searchValue)
+        
+        // console.log(productListItem[id])
         // let searchValue_index = 0
         // for(let productListItem_title_index = 0; productListItem_title_index < productListItem[id].title.length; productListItem_title_index++){
         //     if(productListItem[id].title[productListItem_title_index] === searchValue[searchValue_index]){
