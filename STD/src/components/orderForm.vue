@@ -34,11 +34,11 @@ import {ref} from "vue"
 // const deliver_personaly = ref(false)
 // const address_value = ref('')
 const orderInfo = ref({
-    'name_value':String,
-    'email_value':String,
-    'to_location':String,
-    'deliver_personaly':Boolean,
-    'address_value':String
+    'name_value':'',
+    'email_value':'',
+    'to_location':'',
+    'deliver_personaly':'',
+    'address_value':''
 })
 
 
