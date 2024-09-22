@@ -32,6 +32,11 @@
                 Product
               </router-link>
             </li>
+            <li class="nav-item" >
+               <router-link class="nav-link" :to="{ name: 'order'}"> <!--,params:{id:ShopItem.id} -->
+                Order
+              </router-link>
+            </li>
           </ul>
         </div>
       </div>

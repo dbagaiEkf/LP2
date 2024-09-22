@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from "../components/pages/Home.vue";
 import Catalog from "@/components/pages/Catalog.vue"
 import Product from '@/components/pages/Product.vue';
+import Order from "@/components/pages/Order.vue"
 
 
 const router = createRouter({
@@ -43,14 +44,12 @@ const router = createRouter({
       props: true
 
       
-    }//,
-    // {
-    //   path: '/order',
-    //   name: 'order',
-    //   component: Order
-
-      
-    // }
+    },
+    {
+      path: '/order',
+      name: 'order',
+      component: Order
+    }
   ]
 })
 

@@ -2,12 +2,12 @@
 
 <template>
   <header >
-    <searchItem @search-item="saveStr"></searchItem>
+    <!-- <searchItem @search-item="saveStr"></searchItem> -->
     <!-- <div>{{productListItem[0].title}}</div> -->
     <!-- <div>{{ saveStr }}</div>
     <div>{{search-itme }}</div> --> 
   </header>
-  <!-- <orderForm></orderForm> -->
+
     <!-- <shopItem v-for="item in shopItems"
         :key="item.id"
         :item="item"
@@ -51,7 +51,7 @@
 // import shopItem from "@/components/ShopItem.vue"
 import searchItem from "@/components/searchItem.vue"
 // import productListItem from "@/assets/products.json"
-// import orderForm from "@/components/orderForm.vue"
+import orderForm from "@/components/orderForm.vue"
 import { ref } from "vue"
 import Catalog from "@/components/pages/Catalog.vue"
 import Home  from "@/components/pages/Home.vue"

@@ -5,21 +5,38 @@
         :key="item.id"
         :item="item"
         ></ShopItem>
-        <div v-if="isLoading === true">Loading</div>
+        <!-- <div v-if="isLoading === true">Loading</div> -->
 <!-- </div> -->
 </template>
-<script setup>
+<script >
 import ShopItem from "../ShopItem.vue"
-import productListItem from "@/assets/products.json"
+// import productListItem from "@/assets/products.json"
 
-import {ref} from "vue"
-// import ShopItem from "../ShopItem.vue"
-const shopItems = ref ([])
-const isLoading = ref (true)
+import axios from "axios";
 
-setTimeout(()=> {
-    shopItems.value = productListItem
-    isLoading.value = false},
-    300)
-
+export default{
+    data(){
+        return {
+            shopItems: []
+        }
+    },
+    mounted(){
+        axios
+        .get('https://fakestoreapi.com/products')
+        .then((response)=>{
+            this.shopItems=response.data
+        })
+    }
+}
 </script>
+
+<!-- // import {ref} from "vue"
+// // import ShopItem from "../ShopItem.vue"
+// const shopItems = ref ([])
+// const isLoading = ref (true)
+
+// setTimeout(()=> {
+//     shopItems.value = productListItem
+//     isLoading.value = false},
+    // 300) -->
+
