@@ -1,12 +1,12 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-<!-- <div> -->
+<div>
     <ShopItem v-for="item in shopItems"
         :key="item.id"
         :item="item"
         ></ShopItem>
         <!-- <div v-if="isLoading === true">Loading</div> -->
-<!-- </div> -->
+</div>
 </template>
 <script >
 import ShopItem from "../ShopItem.vue"
