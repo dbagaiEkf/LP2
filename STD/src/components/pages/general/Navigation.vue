@@ -22,21 +22,16 @@
                 Home
               </router-link>
             </li>
-            <li class="nav-item" color="red">
+            <li class="nav-item" >
               <router-link class="nav-link" :to="{ name: 'catalog' }">
                 Catalog
               </router-link>
             </li>
-            <!-- <li class="nav-item">
-              <router-link :to="{ name: 'post', params: { postId: '123' } }">
-                Sample post
+            <li class="nav-item" >
+               <router-link class="nav-link" :to="{ name: 'product',params:{id:1}}"> <!--,params:{id:ShopItem.id} -->
+                Product
               </router-link>
             </li>
-            <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'contacts' }">
-                Contacts
-              </router-link>
-            </li> -->
           </ul>
         </div>
       </div>

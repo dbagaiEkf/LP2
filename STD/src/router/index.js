@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 //  import HomeView from '../views/HomeView.vue'
 import Home from "../components/pages/Home.vue";
+import Catalog from "@/components/pages/Catalog.vue"
+import Product from '@/components/pages/Product.vue';
 
 
 const router = createRouter({
@@ -14,14 +16,41 @@ const router = createRouter({
       
     },
     {
-      path: '/Catalog',
+      path: '/catalog',
       name: 'catalog',
-      component:()=> import('../components/pages/Catalog.vue')  
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      component: Catalog
+
       
-    }
+    },
+    // {
+    //   path: '/contacts',
+    //   name: 'constacts',
+    //   component: Contacts
+ 
+      
+    // },
+    // {
+    //   path: '/cart',
+    //   name: 'cart',
+    //   component: cart
+
+      
+    // },
+    {
+      path: '/product/:id', ///:id
+      name: 'product',
+      component: Product,
+      props: true
+
+      
+    }//,
+    // {
+    //   path: '/order',
+    //   name: 'order',
+    //   component: Order
+
+      
+    // }
   ]
 })
 

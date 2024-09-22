@@ -2,5 +2,5 @@
 <template>
     <div>Hello Im Home page</div>
 </template>
-<script>
+<script setup>
 </script>
