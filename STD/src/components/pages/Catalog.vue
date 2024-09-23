@@ -15,6 +15,7 @@ import ShopItem from "../ShopItem.vue"
 import axios from "axios";
 
 export default{
+    components:{ShopItem},
     data(){
         return {
             shopItems: []
